@@ -103,7 +103,9 @@ briefingList.addEventListener('click', (event) => {
   currentId = button.dataset.id;
   renderSelected();
   renderList();
-  document.querySelector('.selected-briefing').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (window.matchMedia('(max-width: 820px)').matches) {
+    document.querySelector('.selected-briefing').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 });
 
 initSummary();

@@ -20,22 +20,38 @@
     </div>
   </header>
 
-  <main>
-    <section class="controls" aria-label="Briefing selector">
-      <label for="roadgroupSelect">Roadgroup</label>
-      <select id="roadgroupSelect"></select>
-      <label for="searchInput">Search briefings</label>
-      <input id="searchInput" type="search" placeholder="Search by road, area, or issue">
-      <label for="qualityFilter">Quality</label>
-      <select id="qualityFilter">
-        <option value="all">All quality labels</option>
-        <option value="Rich briefing">Rich briefing</option>
-        <option value="Usable briefing">Usable briefing</option>
-        <option value="Too thin">Too thin</option>
-      </select>
-    </section>
+  <main class="app-layout">
+    <aside class="browse-panel" aria-label="Find a roadgroup">
+      <div class="panel-heading">
+        <h2>Find a roadgroup</h2>
+        <p>Use the filters to narrow the roadgroup list, then open the briefing you want.</p>
+      </div>
 
-    <section class="selected-briefing" aria-live="polite">
+      <section class="controls" aria-label="Roadgroup controls">
+        <label for="roadgroupSelect">Jump to roadgroup</label>
+        <select id="roadgroupSelect"></select>
+        <label for="searchInput">Search list</label>
+        <input id="searchInput" type="search" placeholder="Road, area, or issue">
+        <label for="qualityFilter">Show briefings</label>
+        <select id="qualityFilter">
+          <option value="all">All briefing types</option>
+          <option value="Rich briefing">Rich briefing</option>
+          <option value="Usable briefing">Usable briefing</option>
+          <option value="Too thin">Too thin</option>
+        </select>
+      </section>
+
+      <section class="list-section" aria-label="Matching roadgroups">
+        <div class="list-heading">
+          <h3>Matching roadgroups</h3>
+          <p id="matchCount"></p>
+        </div>
+        <div id="briefingList" class="briefing-list"></div>
+      </section>
+    </aside>
+
+    <section class="selected-briefing" aria-live="polite" aria-label="Selected briefing">
+      <p class="section-label">Selected briefing</p>
       <div class="briefing-topline">
         <div>
           <p id="areaLabel" class="area-label"></p>
@@ -50,14 +66,6 @@
       </div>
       <p id="qualityReason" class="quality-reason"></p>
       <article id="briefingContent" class="briefing-content"></article>
-    </section>
-
-    <section class="list-section" aria-label="All matching briefings">
-      <div class="list-heading">
-        <h2>All roadgroups</h2>
-        <p id="matchCount"></p>
-      </div>
-      <div id="briefingList" class="briefing-list"></div>
     </section>
   </main>
 

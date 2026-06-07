@@ -80,21 +80,45 @@ h1 {
   font-size: 1.45rem;
 }
 
-main {
+.app-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+  gap: 20px;
   width: min(1180px, calc(100% - 32px));
   margin: 24px auto 48px;
+  align-items: start;
+}
+
+.browse-panel {
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f6f8f5;
+}
+
+.panel-heading h2 {
+  margin-bottom: 4px;
+  font-size: 1.15rem;
+}
+
+.panel-heading p {
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .controls {
   display: grid;
-  grid-template-columns: 0.9fr 2fr 0.9fr;
-  gap: 8px 14px;
-  align-items: end;
+  gap: 7px;
   margin-bottom: 18px;
 }
 
 .controls label {
-  grid-row: 1;
+  margin-top: 8px;
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 700;
@@ -102,7 +126,6 @@ main {
 }
 
 .controls select, .controls input {
-  grid-row: 2;
   width: 100%;
   min-height: 46px;
   border: 1px solid #bdc9c1;
@@ -119,6 +142,14 @@ main {
   border-radius: 8px;
   background: var(--panel);
   box-shadow: var(--shadow);
+}
+
+.section-label {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .briefing-topline {
@@ -200,7 +231,7 @@ main {
 }
 
 .list-section {
-  margin-top: 28px;
+  margin-top: 0;
 }
 
 .list-heading {
@@ -211,9 +242,9 @@ main {
   margin-bottom: 12px;
 }
 
-.list-heading h2 {
+.list-heading h3 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 0.98rem;
 }
 
 .list-heading p {
@@ -223,14 +254,14 @@ main {
 
 .briefing-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: 1fr;
   gap: 10px;
 }
 
 .list-button {
   display: block;
   width: 100%;
-  min-height: 118px;
+  min-height: 104px;
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -283,7 +314,7 @@ main {
 }
 
 @media (max-width: 820px) {
-  .site-header, .controls {
+  .site-header, .app-layout {
     grid-template-columns: 1fr;
   }
 
@@ -291,8 +322,9 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .controls label, .controls select, .controls input {
-    grid-row: auto;
+  .browse-panel {
+    position: static;
+    max-height: none;
   }
 
   .briefing-topline, .list-heading {
