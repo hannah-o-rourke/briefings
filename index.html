@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Makerfield Canvasser Briefings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Makerfield roadgroups</p>
+      <h1>Canvasser briefings</h1>
+      <p class="intro">Select a roadgroup to see the latest local briefing, the number of Facebook posts used, and whether the briefing is rich, usable, or too thin.</p>
+    </div>
+    <div class="summary" aria-label="Briefing summary">
+      <span><strong id="totalCount">0</strong> briefings</span>
+      <span><strong id="thoroughCount">0</strong> rich</span>
+      <span><strong id="weakCount">0</strong> too thin</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Briefing selector">
+      <label for="roadgroupSelect">Roadgroup</label>
+      <select id="roadgroupSelect"></select>
+      <label for="searchInput">Search briefings</label>
+      <input id="searchInput" type="search" placeholder="Search by road, area, or issue">
+      <label for="qualityFilter">Quality</label>
+      <select id="qualityFilter">
+        <option value="all">All quality labels</option>
+        <option value="Rich briefing">Rich briefing</option>
+        <option value="Usable briefing">Usable briefing</option>
+        <option value="Too thin">Too thin</option>
+      </select>
+    </section>
+
+    <section class="selected-briefing" aria-live="polite">
+      <div class="briefing-topline">
+        <div>
+          <p id="areaLabel" class="area-label"></p>
+          <h2 id="briefingTitle">Choose a roadgroup</h2>
+        </div>
+        <span id="qualityBadge" class="badge"></span>
+      </div>
+      <div class="metrics">
+        <div><span id="postCount">0</span><small>posts used</small></div>
+        <div><span>Last 2 months</span><small>time period</small></div>
+        <div><span id="issueCount">0</span><small>issue bullets</small></div>
+      </div>
+      <p id="qualityReason" class="quality-reason"></p>
+      <article id="briefingContent" class="briefing-content"></article>
+    </section>
+
+    <section class="list-section" aria-label="All matching briefings">
+      <div class="list-heading">
+        <h2>All roadgroups</h2>
+        <p id="matchCount"></p>
+      </div>
+      <div id="briefingList" class="briefing-list"></div>
+    </section>
+  </main>
+
+  <script src="briefings-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
